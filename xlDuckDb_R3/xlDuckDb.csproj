@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<RollForward>LatestMinor</RollForward>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Platforms>x64</Platforms>
+
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DuckDB.NET.Bindings.Full" Version="1.5.0" />
+		<PackageReference Include="DuckDB.NET.Data.Full" Version="1.5.0" />
+		<PackageReference Include="ExcelDna.AddIn" Version="1.9.0" />
+		<PackageReference Include="ExcelDna.Interop" Version="15.0.1" />
+
+		<PackageReference Include="icu.net" Version="2.10.0" />
+		<PackageReference Include="Microsoft.ICU.ICU4C.Runtime.win-x64" Version="70.1.1" />
+	</ItemGroup>
+
+	<Target Name="CopyICUNativeDLLs" AfterTargets="Build">
+		<ItemGroup>
+			<ICUDlls Include="$(OutputPath)runtimes\win-x64\native\*.dll" />
+		</ItemGroup>
+		<Copy SourceFiles="@(ICUDlls)" DestinationFolder="$(OutputPath)" SkipUnchangedFiles="true" />
+	</Target>
+
+	<Target Name="CopyICUFiles" AfterTargets="Build">
+		<ItemGroup>
+			<ICUDataFiles Include="$(NuGetPackageRoot)icu.net/2.10.0/runtimes/win-x64/native/icudt*.dat" />
+			<ICUNativeDlls Include="$(NuGetPackageRoot)icu.net/2.10.0/runtimes/win-x64/native/icu*.dll" />
+		</ItemGroup>
+		<Copy SourceFiles="@(ICUDataFiles)" DestinationFolder="$(OutputPath)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(ICUNativeDlls)" DestinationFolder="$(OutputPath)" SkipUnchangedFiles="true" />
+	</Target>
+
+	<PropertyGroup>
+		<ExcelDnaCreate32BitAddIn>false</ExcelDnaCreate32BitAddIn>
+		<RunExcelDnaPack>false</RunExcelDnaPack>
+		<ExcelAddInName>xlDuckDb</ExcelAddInName>
+		<ExcelAddInFileName>xlDuckDb</ExcelAddInFileName>
+		<ExcelAddInExplicitExports>true</ExcelAddInExplicitExports>
+	</PropertyGroup>
+
+</Project>
