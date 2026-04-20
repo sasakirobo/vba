@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "gyZDByn2EKk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\tadas\\OneDrive\\デスクトップ\\xlDuckDb-0.11.0\\xlDuckDb\\xlDuckDb.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tadas\\.nuget\\packages\\duckdb.net.bindings.full\\1.5.0\\duckdb.net.bindings.full.1.5.0.nupkg.sha512",
+    "C:\\Users\\tadas\\.nuget\\packages\\duckdb.net.data.full\\1.5.0\\duckdb.net.data.full.1.5.0.nupkg.sha512",
+    "C:\\Users\\tadas\\.nuget\\packages\\exceldna.addin\\1.9.0\\exceldna.addin.1.9.0.nupkg.sha512",
+    "C:\\Users\\tadas\\.nuget\\packages\\exceldna.integration\\1.9.0\\exceldna.integration.1.9.0.nupkg.sha512",
+    "C:\\Users\\tadas\\.nuget\\packages\\exceldna.interop\\15.0.1\\exceldna.interop.15.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
