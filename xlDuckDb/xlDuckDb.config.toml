@@ -1,0 +1,43 @@
+# xlDuckDb TOML 設定ファイル（DLLと同じ場所に配置）
+# このファイルを編集することで、アドインの制限値や定数をカスタマイズできます。
+# 設定を変更した場合は、Excelを再起動してください。
+
+[limits]
+# クエリ出力の最大行数（Excelの最大行: 1048570）
+maxOutputRows = 1048570
+
+# 結果キャッシュの最大メモリ（MB単位、0で無制限）
+resultCacheMaxMemoryMb = 512
+
+# 非同期クエリのタイムアウト（秒）
+asyncTimeoutSeconds = 300
+
+# Cascade Search の UNION 上限（超過時は警告）
+cascadeSearchMaxUnion = 32
+
+# Cascade Search 上限超過時の警告メッセージ
+cascadeSearchLimitMessage = "UNION数が上限を超えました。条件を減らしてください。"
+
+[ui]
+# Ribbon の「キャッシュ」グループを表示するか
+showCacheGroup = true
+
+# Ribbon の「出力」グループを表示するか
+showOutputGroup = true
+
+# Ribbon の「タイムアウト」グループを表示するか
+showTimeoutGroup = true
+
+# Ribbon の「設定」グループを表示するか
+showConfigGroup = true
+
+# Ribbon の「詳細ログ」ボタンを表示するか
+showDetailedLoggingButton = false
+
+[custom]
+# 任意の数値
+customIntValue = 42
+# 任意の文字列
+customStringValue = "サンプル値"
+# 任意のフラグ
+customFlag = false

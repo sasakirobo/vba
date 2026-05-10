@@ -1,0 +1,310 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0-windows7.0": {
+      "DuckDB.NET.Bindings.Full/1.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/DuckDB.NET.Bindings.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/DuckDB.NET.Bindings.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm64/native/libduckdb.so": {
+            "assetType": "native",
+            "rid": "linux-arm64"
+          },
+          "runtimes/linux-x64/native/libduckdb.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx/native/libduckdb.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/win-arm64/native/duckdb.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/duckdb.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          }
+        }
+      },
+      "DuckDB.NET.Data.Full/1.5.0": {
+        "type": "package",
+        "dependencies": {
+          "DuckDB.NET.Bindings.Full": "1.5.0"
+        },
+        "compile": {
+          "lib/net8.0/DuckDB.NET.Data.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/DuckDB.NET.Data.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "ExcelDna.AddIn/1.9.0": {
+        "type": "package",
+        "dependencies": {
+          "ExcelDna.Integration": "[1.9.0]"
+        },
+        "build": {
+          "build/ExcelDna.AddIn.props": {},
+          "build/ExcelDna.AddIn.targets": {}
+        }
+      },
+      "ExcelDna.Integration/1.9.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows7.0/ExcelDna.Integration.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/ExcelDna.Integration.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ExcelDna.Interop/15.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows7.0/Microsoft.Office.Interop.Excel.dll": {},
+          "lib/net6.0-windows7.0/Microsoft.Vbe.Interop.dll": {},
+          "lib/net6.0-windows7.0/Office.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Microsoft.Office.Interop.Excel.dll": {},
+          "lib/net6.0-windows7.0/Microsoft.Vbe.Interop.dll": {},
+          "lib/net6.0-windows7.0/Office.dll": {}
+        },
+        "build": {
+          "build/ExcelDna.Interop.targets": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DuckDB.NET.Bindings.Full/1.5.0": {
+      "sha512": "kl7BCFFAvEI/s/tcU3aPe2mR7g7PxwyGb/f5NmRzogCa1lSstmsCo69gInPoOQ+pCL44qtIQp5Rb5QHJeR+N/A==",
+      "type": "package",
+      "path": "duckdb.net.bindings.full/1.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE-DuckDB.txt",
+        "LICENSE.md",
+        "Logo.jpg",
+        "README.md",
+        "duckdb.net.bindings.full.1.5.0.nupkg.sha512",
+        "duckdb.net.bindings.full.nuspec",
+        "lib/net10.0/DuckDB.NET.Bindings.dll",
+        "lib/net10.0/DuckDB.NET.Bindings.pdb",
+        "lib/net8.0/DuckDB.NET.Bindings.dll",
+        "lib/net8.0/DuckDB.NET.Bindings.pdb",
+        "runtimes/linux-arm64/native/libduckdb.so",
+        "runtimes/linux-x64/native/libduckdb.so",
+        "runtimes/osx/native/libduckdb.dylib",
+        "runtimes/win-arm64/native/duckdb.dll",
+        "runtimes/win-x64/native/duckdb.dll"
+      ]
+    },
+    "DuckDB.NET.Data.Full/1.5.0": {
+      "sha512": "hznTijgPhZCRc9PPu/QKaHkpjWsmT1dY9r+R9aa4r4IpcjmVpMv0WEBzAH9OeJLMQIR9lFauOtAuNioruH3FMQ==",
+      "type": "package",
+      "path": "duckdb.net.data.full/1.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE-DuckDB.txt",
+        "LICENSE.md",
+        "Logo.jpg",
+        "README.md",
+        "duckdb.net.data.full.1.5.0.nupkg.sha512",
+        "duckdb.net.data.full.nuspec",
+        "lib/net10.0/DuckDB.NET.Data.dll",
+        "lib/net10.0/DuckDB.NET.Data.pdb",
+        "lib/net8.0/DuckDB.NET.Data.dll",
+        "lib/net8.0/DuckDB.NET.Data.pdb"
+      ]
+    },
+    "ExcelDna.AddIn/1.9.0": {
+      "sha512": "+jxXXswl6ds2ZGTwsuKWwO8crfzqvBFqd/t3PmEtg2YR6EN9F2pA97hiXblckhWZ6AKBlSGEC/ONTrCON2O33A==",
+      "type": "package",
+      "path": "exceldna.addin/1.9.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/ExcelDna.AddIn.props",
+        "build/ExcelDna.AddIn.targets",
+        "content/ExcelDna-Template.dna",
+        "content/Properties/ExcelDna.Build.props",
+        "exceldna.addin.1.9.0.nupkg.sha512",
+        "exceldna.addin.nuspec",
+        "images/ExcelDna-nu.png",
+        "readme.txt",
+        "tools/net462/EnvDTE.dll",
+        "tools/net462/ExcelDna.AddIn.Tasks.dll",
+        "tools/net462/ExcelDna.Integration.dll",
+        "tools/net462/ExcelDna.xll",
+        "tools/net462/ExcelDna64.xll",
+        "tools/net462/Microsoft.Extensions.DependencyModel.dll",
+        "tools/net462/Newtonsoft.Json.dll",
+        "tools/net462/System.Collections.Immutable.dll",
+        "tools/net462/System.Reflection.Metadata.dll",
+        "tools/net462/install.ps1",
+        "tools/net462/uninstall.ps1",
+        "tools/net6.0-windows7.0/AsmResolver.PE.File.dll",
+        "tools/net6.0-windows7.0/AsmResolver.PE.dll",
+        "tools/net6.0-windows7.0/AsmResolver.dll",
+        "tools/net6.0-windows7.0/ExcelDna.AddIn.Tasks.dll",
+        "tools/net6.0-windows7.0/ExcelDna.Integration.dll",
+        "tools/net6.0-windows7.0/ExcelDna.xll",
+        "tools/net6.0-windows7.0/ExcelDna64.xll"
+      ]
+    },
+    "ExcelDna.Integration/1.9.0": {
+      "sha512": "A1nbeRWa+rg3RoO9NV9iqNwQxWb9eVNG+Ki3uCfo8D3U8CT11/fzTIvVT3y2LoCTzqRIPwTysqp9sj42MKYw5Q==",
+      "type": "package",
+      "path": "exceldna.integration/1.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "exceldna.integration.1.9.0.nupkg.sha512",
+        "exceldna.integration.nuspec",
+        "images/ExcelDna-nu.png",
+        "lib/net462/ExcelDna.Integration.dll",
+        "lib/net462/ExcelDna.Integration.xml",
+        "lib/net6.0-windows7.0/ExcelDna.Integration.dll",
+        "lib/net6.0-windows7.0/ExcelDna.Integration.xml"
+      ]
+    },
+    "ExcelDna.Interop/15.0.1": {
+      "sha512": "CIKPXlw+6C6v2Em8DVFgkTsrMZoz978CtSG722+dwHi3Tt7JTxQ2BmmBH4yJuzcA9EaOC5AMEmioLkLsvhESQw==",
+      "type": "package",
+      "path": "exceldna.interop/15.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/ExcelDna.Interop.targets",
+        "exceldna.interop.15.0.1.nupkg.sha512",
+        "exceldna.interop.nuspec",
+        "images/ExcelDna-nu.png",
+        "lib/net452/Microsoft.Office.Interop.Excel.dll",
+        "lib/net452/Microsoft.Vbe.Interop.dll",
+        "lib/net452/Office.dll",
+        "lib/net6.0-windows7.0/Microsoft.Office.Interop.Excel.dll",
+        "lib/net6.0-windows7.0/Microsoft.Vbe.Interop.dll",
+        "lib/net6.0-windows7.0/Office.dll"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0-windows7.0": [
+      "DuckDB.NET.Bindings.Full >= 1.5.0",
+      "DuckDB.NET.Data.Full >= 1.5.0",
+      "ExcelDna.AddIn >= 1.9.0",
+      "ExcelDna.Interop >= 15.0.1"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\tadas\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\tadas\\OneDrive\\デスクトップ\\xlDuckDb-0.11.0\\xlDuckDb\\xlDuckDb.csproj",
+      "projectName": "xlDuckDb",
+      "projectPath": "C:\\Users\\tadas\\OneDrive\\デスクトップ\\xlDuckDb-0.11.0\\xlDuckDb\\xlDuckDb.csproj",
+      "packagesPath": "C:\\Users\\tadas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tadas\\OneDrive\\デスクトップ\\xlDuckDb-0.11.0\\xlDuckDb\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\tadas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "framework": "net8.0-windows7.0",
+          "targetAlias": "net8.0-windows",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "10.0.200"
+    },
+    "frameworks": {
+      "net8.0-windows7.0": {
+        "framework": "net8.0-windows7.0",
+        "targetAlias": "net8.0-windows",
+        "dependencies": {
+          "DuckDB.NET.Bindings.Full": {
+            "target": "Package",
+            "version": "[1.5.0, )"
+          },
+          "DuckDB.NET.Data.Full": {
+            "target": "Package",
+            "version": "[1.5.0, )"
+          },
+          "ExcelDna.AddIn": {
+            "target": "Package",
+            "version": "[1.9.0, )"
+          },
+          "ExcelDna.Interop": {
+            "target": "Package",
+            "version": "[15.0.1, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

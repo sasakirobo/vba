@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DnaLibrary 
+    Name="xlDuckDb" 
+    RuntimeVersion="4.0"
+    xmlns="http://schemas.excel-dna.net/addin/2020/07/dna.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://schemas.excel-dna.net/addin/2020/07/dna.xsd http://schemas.excel-dna.net/addin/2020/07/dna.xsd">
+
+  <!-- ────────────────────────────────────────────────────────── -->
+  <!-- Assembly Binding Redirects (アセンブリバージョン対応) -->
+  <!-- ────────────────────────────────────────────────────────── -->
+  <!-- 複数の .NET バージョンに対応するため、緩和されたバージョン戦略を採用 -->
+  <!-- 注: oldVersion を広い範囲に設定することで、既存のバージョンも新しいバージョンも対応可能 -->
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <!-- 
+        System.Runtime: 
+        - 古いバージョン (4.x ～ 7.x) から新しいバージョン (8.x ～ 9.x) まで幅広く対応
+        - 最新の利用可能なバージョンへ自動リダイレクト
+      -->
+      <dependentAssembly>
+        <assemblyIdentity name="System.Runtime" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-99.0.0.0" newVersion="8.0.0.0" />
+      </dependentAssembly>
+      
+      <!-- System.Collections: 4.x ～ 最新バージョンまで対応 -->
+      <dependentAssembly>
+        <assemblyIdentity name="System.Collections" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.1.0" newVersion="4.1.1.0" />
+      </dependentAssembly>
+      
+      <!-- System.Collections.Immutable: 緩和版対応 -->
+      <dependentAssembly>
+        <assemblyIdentity name="System.Collections.Immutable" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-8.0.0.0" newVersion="8.0.0.0" />
+      </dependentAssembly>
+      
+      <!-- System.Linq: 4.x ～ 最新バージョンまで対応 -->
+      <dependentAssembly>
+        <assemblyIdentity name="System.Linq" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.2.1.0" newVersion="4.2.1.0" />
+      </dependentAssembly>
+      
+      <!-- System.Reflection: 4.x ～ 最新バージョンまで対応 -->
+      <dependentAssembly>
+        <assemblyIdentity name="System.Reflection" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.1.0" newVersion="4.1.1.0" />
+      </dependentAssembly>
+      
+      <!-- System.Reflection.Emit: 4.x ～ 最新バージョンまで対応 -->
+      <dependentAssembly>
+        <assemblyIdentity name="System.Reflection.Emit" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.1.0" newVersion="4.1.1.0" />
+      </dependentAssembly>
+      
+      <!-- System.Reflection.Emit.Lightweight: 4.x ～ 最新バージョンまで対応 -->
+      <dependentAssembly>
+        <assemblyIdentity name="System.Reflection.Emit.Lightweight" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.1.0" newVersion="4.1.1.0" />
+      </dependentAssembly>
+      
+      <!-- System.Text.Encoding: 4.x ～ 最新バージョンまで対応 -->
+      <dependentAssembly>
+        <assemblyIdentity name="System.Text.Encoding" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.1.0" newVersion="4.1.1.0" />
+      </dependentAssembly>
+      
+      <!-- System.Threading: 4.x ～ 最新バージョンまで対応 -->
+      <dependentAssembly>
+        <assemblyIdentity name="System.Threading" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.1.1.0" newVersion="4.1.1.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+
+  <ExternalLibrary Path="xlDuckDb.dll" LoadBehavior="33" />
+
+  <!-- ────────────────────────────────────────────────────────── -->
+  <!-- Ribbon UI 定義（Excel 2007以降対応スキーマ） -->
+  <!-- ────────────────────────────────────────────────────────── -->
+  <CustomUI>
+    <ribbon xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="OnRibbonLoad">
+      <tabs>
+        <tab id="xlDuckDbTab" label="xlDuckDb">
+          <!-- ────────────────────────────────────────────────────── -->
+          <!-- グループ1: キャッシュ設定 -->
+          <!-- ────────────────────────────────────────────────────── -->
+          <group id="cacheGroup" label="キャッシュ">
+            <checkBox 
+              id="enableResultCacheCheckbox" 
+              label="キャッシュ有効" 
+              onAction="OnEnableResultCacheChanged"
+              screentip="結果キャッシュのON/OFF"
+              supertip="クエリ結果をメモリに保存して高速化します" />
+
+            <separator id="sep1" />
+
+            <label id="cacheMemoryLabel" getLabel="GetCacheMemoryLabel" />
+            <editBox 
+              id="resultCacheMaxMemoryBox" 
+              onChange="OnResultCacheMaxMemoryChanged"
+              screentip="最大キャッシュメモリ（MB）"
+              sizeString="XXXXX" />
+
+            <separator id="sep2" />
+
+            <button 
+              id="clearCacheButton" 
+              label="クリア" 
+              imageMso="Delete" 
+              onAction="OnClearCache"
+              screentip="キャッシュをクリア" 
+              supertip="メモリ上のすべてのキャッシュを削除します" />
+          </group>
+
+          <!-- ────────────────────────────────────────────────────── -->
+          <!-- グループ2: 出力設定 -->
+          <!-- ────────────────────────────────────────────────────── -->
+          <group id="outputGroup" label="出力">
+            <label id="maxRowsLabel" getLabel="GetMaxRowsLabel" />
+            <editBox 
+              id="maxOutputRowsBox" 
+              onChange="OnMaxOutputRowsChanged"
+              screentip="クエリ出力の最大行数"
+              sizeString="XXXXXXXXXX" />
+
+            <separator id="sep3" />
+
+            <button 
+              id="preset10kButton" 
+              label="10K" 
+              onAction="OnPresetMaxRows"
+              tag="10000"
+              screentip="出力行を 10,000 に設定" 
+              size="normal" />
+
+            <button 
+              id="preset100kButton" 
+              label="100K" 
+              onAction="OnPresetMaxRows"
+              tag="100000"
+              screentip="出力行を 100,000 に設定" 
+              size="normal" />
+
+            <button 
+              id="presetMaxButton" 
+              label="Max" 
+              onAction="OnPresetMaxRows"
+              tag="1048570"
+              screentip="Excel最大行数に設定" 
+              size="normal" />
+          </group>
+
+          <!-- ────────────────────────────────────────────────────── -->
+          <!-- グループ3: タイムアウト設定 -->
+          <!-- ────────────────────────────────────────────────────── -->
+          <group id="timeoutGroup" label="タイムアウト">
+            <label id="asyncTimeoutLabel" getLabel="GetAsyncTimeoutLabel" />
+            <editBox 
+              id="asyncTimeoutBox" 
+              onChange="OnAsyncTimeoutChanged"
+              screentip="非同期クエリタイムアウト（秒）"
+              sizeString="XXXXX" />
+
+            <separator id="sep4" />
+
+            <button 
+              id="timeout30sButton" 
+              label="30秒" 
+              onAction="OnPresetAsyncTimeout"
+              tag="30"
+              screentip="タイムアウトを 30 秒に設定" 
+              size="normal" />
+
+            <button 
+              id="timeout300sButton" 
+              label="5分" 
+              onAction="OnPresetAsyncTimeout"
+              tag="300"
+              screentip="タイムアウトを 5 分に設定" 
+              size="normal" />
+
+            <button 
+              id="timeout600sButton" 
+              label="10分" 
+              onAction="OnPresetAsyncTimeout"
+              tag="600"
+              screentip="タイムアウトを 10 分に設定" 
+              size="normal" />
+          </group>
+
+          <!-- ────────────────────────────────────────────────────── -->
+          <!-- グループ4: 設定 -->
+          <!-- ────────────────────────────────────────────────────── -->
+          <group id="configGroup" label="設定">
+            <checkBox 
+              id="enableExtensionsCheckbox" 
+              label="Extensions" 
+              onAction="OnEnableExtensionsChanged"
+              screentip="Built-in Extensions有効化"
+              supertip="Excel, Parquet, HTTPS, Lance Extensions" />
+
+            <checkBox 
+              id="enableDetailedLoggingCheckbox" 
+              label="詳細ログ" 
+              onAction="OnEnableDetailedLoggingChanged"
+              screentip="デバッグログ有効化" 
+              supertip="Visual Studio Output に詳細ログが出力されます" />
+
+            <separator id="sep5" />
+
+            <button 
+              id="resetConfigButton" 
+              label="リセット" 
+              imageMso="Redo" 
+              onAction="OnResetConfig"
+              screentip="設定をデフォルトに戻す"
+              supertip="すべての設定値がリセットされます" />
+
+            <button 
+              id="aboutButton" 
+              label="情報" 
+              imageMso="Help" 
+              onAction="OnShowAbout"
+              screentip="バージョン情報表示" 
+              supertip="xlDuckDbの設定値を表示します" />
+          </group>
+        </tab>
+      </tabs>
+    </ribbon>
+  </CustomUI>
+
+  <!-- ────────────────────────────────────────────────────────── -->
+  <!-- Image References (optional) -->
+  <!-- ────────────────────────────────────────────────────────── -->
+  <!-- <Image Name="SampleImage" Path="Images\Sample.png" /> -->
+
+</DnaLibrary>

@@ -1,0 +1,93 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\tadas\\OneDrive\\デスクトップ\\xlDuckDb-0.11.0\\xlDuckDb\\xlDuckDb.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\tadas\\OneDrive\\デスクトップ\\xlDuckDb-0.11.0\\xlDuckDb\\xlDuckDb.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\tadas\\OneDrive\\デスクトップ\\xlDuckDb-0.11.0\\xlDuckDb\\xlDuckDb.csproj",
+        "projectName": "xlDuckDb",
+        "projectPath": "C:\\Users\\tadas\\OneDrive\\デスクトップ\\xlDuckDb-0.11.0\\xlDuckDb\\xlDuckDb.csproj",
+        "packagesPath": "C:\\Users\\tadas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tadas\\OneDrive\\デスクトップ\\xlDuckDb-0.11.0\\xlDuckDb\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tadas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows": {
+            "framework": "net8.0-windows7.0",
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.200"
+      },
+      "frameworks": {
+        "net8.0-windows": {
+          "framework": "net8.0-windows7.0",
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "DuckDB.NET.Bindings.Full": {
+              "target": "Package",
+              "version": "[1.5.0, )"
+            },
+            "DuckDB.NET.Data.Full": {
+              "target": "Package",
+              "version": "[1.5.0, )"
+            },
+            "ExcelDna.AddIn": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "ExcelDna.Interop": {
+              "target": "Package",
+              "version": "[15.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
